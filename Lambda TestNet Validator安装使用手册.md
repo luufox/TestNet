@@ -19,7 +19,7 @@
 2. 网络端口： 13566~13659
 
 ## 节点安装部署
-解压 Lambda Testnet Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
+节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar xvf lambda.tar ``` 解压 Lambda Testnet Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
 
 ### 创建初始账户
 Lambda Validator节点需要以某个账户去启动才能正常运行，第一步需要创建一个初始账户。
