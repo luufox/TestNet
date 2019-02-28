@@ -107,7 +107,7 @@ I[21026-02-21|17:52:41.852] Executed block                               module=
 
 1. 当申请加入Validator集合成功后，需要等待区块同步完成后，才能够参与共识，通过`lambda.log`可以查看。
 2. 启动节点的账户，申请成为 Validator 的账户必须为同一个账户，否则共识网络不能正确地验证申请人的信息，从而导致申请 Validator 失败。
-3. 申请成为 Validator 会调用本地 127.0.0.1:13657/status 接口查询节点的同步状态，需保证该接口能正常访问。
+3. 若申请成为 Validator 时，提示``` failed to get local node information, please check if node is running ```，请检查节点是否正常运行，并能正常访问``` 127.0.0.1:13657/status ```接口。
 
 ## 账户的备份
 
