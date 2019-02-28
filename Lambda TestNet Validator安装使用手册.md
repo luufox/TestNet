@@ -101,11 +101,11 @@ I[21026-02-21|17:52:41.852] Executed block                               module=
 成功以后此时该节点已经成功申请以 “Mike”的身份加入到validator的网络中。
 在等待2~3个区块高度后后，就能在 `Lambda Chain` 的[区块链浏览器](http://explorer.lambda.im/#/validator)中，查询到 “Mike” 对应的地址是否成功加入到 Validator 的集合中。
 
-查看节点是否同步完成也可以通过Lambda 官方测试网浏览器Validator列表页面查看，如果您节点对应列的Latest Produced Block 不是显示Syncing blocks 而是显示日期，则表示同步完成，该Validator也参与了出块。
+查看节点是否成功成为 Validator 并参与出块，可以通过 Lambda 官方测试网浏览器 Validator 列表页面查看，如果您节点对应列的 Latest Produced Block 不是显示 Syncing blocks 而是显示日期，则表示节点参与了出块。
 
 **注意** 
 
-1. 当申请加入Validator集合成功后，需要等待区块同步完成后，才能够参与共识，通过`lambda.log`可以查看。
+1. 需要等待区块同步完成后，才能申请成为 Validator 参与共识，通过`lambda.log`可以查看当前块同步的高度。
 2. 启动节点的账户，申请成为 Validator 的账户必须为同一个账户，否则共识网络不能正确地验证申请人的信息，从而导致申请 Validator 失败。
 3. 若申请成为 Validator 时，提示``` failed to get local node information, please check if node is running ```，请检查节点是否正常运行，并能正常访问``` 127.0.0.1:13657/status ```接口。
 
