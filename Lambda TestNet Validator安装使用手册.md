@@ -106,7 +106,7 @@ I[21026-02-21|17:52:41.852] Executed block                               module=
 1. 需要等待区块同步完成后，才能申请成为 Validator 参与共识，通过`lambda.log`可以查看当前块同步的高度。
 2. 启动节点的账户，申请成为 Validator 的账户必须为同一个账户，否则共识网络不能正确地验证申请人的信息，从而导致申请 Validator 失败。
 3. 若申请成为 Validator 时，提示``` failed to get local node information, please check if node is running ```，请检查节点是否正常运行，并能正常访问``` 127.0.0.1:13657/status ```接口。
-
+4. 成为 validator 需要质押100万测试网络的 lamb token，请在测试网启动前，按照开发团队要求提交测试网的公钥地址，方便打币进行后续的质押操作.
 ## 账户的备份
 
 ### 命令行备份
