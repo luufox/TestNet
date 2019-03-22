@@ -19,7 +19,7 @@
 2. 网络端口： 13656~13659,26660
 
 ## 节点安装部署
-节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar xvf lambda.tar ``` 解压 Lambda Testnet Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
+节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar xvf lambda_val.tar ``` 解压 Lambda Testnet Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
 
 ### 创建初始账户
 Lambda Validator节点需要以某个账户去启动才能正常运行，第一步需要创建一个初始账户。
@@ -44,13 +44,11 @@ Enter Password:
 
 执行：
 
-1. ./lambda init [name] -b bootconfig.json
-2. 输入密码，回车。成功初始化能看到以下日志输出到控制台。
+1. ./lambda init bootconfig.json，成功初始化能看到以下日志输出到控制台
 
 例如如下:
 ```bash
-$ ./lambda init Mike -b bootconfig.json
-Enter Password:
+$ ./lambda init bootconfig.json
 Generated private validator path /Users/robert/.lambda/config/priv_validator.json
 Generated genesis file path /Users/robert/.lambda/config/genesis.json
 lambda node initialize.
@@ -91,11 +89,11 @@ I[21026-02-21|17:52:41.852] Executed block                               module=
 如果您想参与成为Lambda 测试网络的`Validator` ，请等待区块同步完成在继续下面的操作。
 
 ### 节点申请成为 Validator
-节点正常启动后，当同步到最新块高度时，可以将节点申请成为 validator，参与出块和奖励。
+节点正常启动后，当同步到最新块高度时，可以将节点申请成为 validator，参与出块和奖励。成为 validator 需要质押100万测试网络的 lamb token，请在测试网启动前，按照开发团队要求提交测试网的公钥地址，方便打币进行后续的质押操作。
 
 执行：
 
-1. ./lambda vals add [name]
+1. ./lambda validator add [name]
 2. 输入密码，回车。这时会需要等待一会，进行出块确认，不要中断命令，会造成命令执行失败。
 
 成功以后此时该节点已经成功申请以 “Mike”的身份加入到validator的网络中。
