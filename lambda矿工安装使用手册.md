@@ -204,8 +204,8 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 
 执行：
 
-1. ./startup.sh [name]
-2. 输入密码并回车
+1. ./startup.sh [name]  密码
+2. 回车
 
 例如如下：
 ```bash
