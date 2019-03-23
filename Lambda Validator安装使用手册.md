@@ -1,7 +1,9 @@
-# Lambda Testnet Validator安装使用文档
+# Lambda Validator安装使用文档
 
 * [配置要求](#运行环境配置要求)
 * [节点安装部署](#节点安装部署)
+  - [新建账户](#新建账户)
+  - [已有账户](#已有账户)
 * [账户的备份](#账户的备份)
 
 ## 运行环境配置要求
@@ -16,12 +18,12 @@
 
 ### 网络环境
 1. 网络配置： 公网IP 100MB带宽
-2. 网络端口： 13656~13659,26660
+2. 网络端口： 13650~13670
 
 ## 节点安装部署
-节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar xvf lambda_val.tar ``` 解压 Lambda Testnet Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
+节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar -zxvf lambda_val_x.x.x.tar.gz ``` 解压 Lambda Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
 
-### 创建初始账户
+### 新建账户
 Lambda Validator节点需要以某个账户去启动才能正常运行，第一步需要创建一个初始账户。
 
 执行：
@@ -38,6 +40,10 @@ Enter Password:
 `68015E294E1C323570DEFC06D0AFAE01A51DBAA9` 则是创建账户的地址
 
 **注意** 通过该地址可以查看用户是否成功加入Validator 后续可以通过 ./lambda account list 命令，查询本机的账户信息
+
+### 已有账户
+1. 在之前已有账户设备启动则不需要账户导入操作，直接执行clean.sh脚本，在执行完脚本后直接进行初始化Validator节点和后续操作。
+2. 在新设备上启动，要先导入备份的账户信息，再进行初始化Validator节点和后续操作。
 
 ### 初始化Validator节点
 创建完初始账户后，需要用该账户对节点进行初始化，初始化会用到 bootconfig.json 文件，该文件为共识网络的配置信息，无需修改，修改会导致节点运行失败。
@@ -66,11 +72,12 @@ lambda node initialize.
 
 执行：
 
-1. ./startup.sh [name] [password]
+1. ./startup.sh [name]
+2. 输入密码并回车
 
 例如如下：
 ```bash
-$ ./startup.sh mike lambda
+$ ./startup.sh mike
 ```
 
 执行完 `startup.sh `脚本后，控制台不会有多余的输出，需要到节点日志中查看节点是否正常启动，日志输出在安装目录下的 `lambda.log` 文件中。如果日志输出如下，没有报错信息，则节点在同步区块，正常运行中。
