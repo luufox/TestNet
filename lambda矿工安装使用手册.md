@@ -165,7 +165,7 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 
 执行：
 
-1. ./lambda miner status [name]
+1. ./lambda miner pledge status [name]
 2. 回车。
 
 ### 发起卖单
@@ -209,7 +209,7 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 
 例如如下：
 ```bash
-$ ./startup.sh mike
+$ ./startup.sh mike  密码
 ```
 
 执行完 `startup.sh `脚本后输出如下。
