@@ -66,7 +66,9 @@ lambda node initialize.
 2. ./data —— 存储Lambda Chain的数据
 3. ./keys —— 存储节点的账户信息
  
-**注意** 该目录下的文件跟测试网络的运行密切相关请妥善保管,不要随意进行操作。如果您担心账户信息数据丢失问题，请备份好./keys 目录下的所有文件或者使用我们的账户导出命令备份。
+**注意** 
+1. 该目录下的文件跟测试网络的运行密切相关请妥善保管,不要随意进行操作。如果您担心账户信息数据丢失问题，请备份好./keys 目录下的所有文件或者使用我们的账户导出命令备份。
+2. 如果想要自定义存储路径，请修改 `bootconfig.json` 中的 `storage_path` 字段（请使用绝对路径），如果该字段为空或者路径不存在，将使用lambda的默认配置路径（$HOME/.lambda），修改完成后，删除.lambda文件夹，重新执行 `./lambda init bootconfig.json` 命令。（只能在初始化节点时进行此操作，删除.lambda文件夹需要慎重）
 
 ### 新建账户
 Lambda存储节点需要以某个账户去启动才能正常运行，第一步需要创建一个初始账户。
@@ -104,9 +106,7 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 ```
 生成的配置文件存储到storj/Storagenode目录下，这里可以执行`miner config`对配置文件进行编译。
 
-**注意** 
-1. lambda/storj文件夹非常重要，请不要删除或者进行移动操作，在成为矿工后，用户存储的文件分片也会存储到该文件夹下。
-2. 如果想要自定义存储路径，请修改bootconfig.json中的 `storage_path` 字段（请使用绝对路径），如果该字段为空或者路径不存在，将使用lambda的默认配置路径（$HOME/.lambda），修改完成后，重新执行 `./lambda miner init` 命令。
+**注意** lambda/storj文件夹非常重要，请不要删除或者进行移动操作，在成为矿工后，用户存储的文件分片也会存储到该文件夹下。
 
 
 ## 账户备份
