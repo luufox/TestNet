@@ -2,6 +2,7 @@
 
 * [配置要求](#运行环境配置要求)
 * [节点安装部署](#节点安装部署)
+  - [初始化](#初始化)
   - [新建账户](#新建账户)
   - [已有账户](#已有账户)
 * [账户的备份](#账户的备份)
@@ -18,10 +19,32 @@
 
 ### 网络环境
 1. 网络配置： 公网IP 100MB带宽
-2. 网络端口： 13650~13670
+2. 网络端口： 13656~13660,13670
 
 ## 节点安装部署
 节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar -zxvf lambda_val_x.x.x.tar.gz ``` 解压 Lambda Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
+
+### 初始化
+创建完初始账户后，需要用该账户对节点进行初始化，初始化会用到 bootconfig.json 文件，该文件为共识网络的配置信息，无需修改，修改会导致节点运行失败。
+
+执行：
+
+1. ./lambda init bootconfig.json，成功初始化能看到以下日志输出到控制台
+
+例如如下:
+```bash
+$ ./lambda init bootconfig.json
+Generated private validator path /Users/robert/.lambda/config/priv_validator.json
+Generated genesis file path /Users/robert/.lambda/config/genesis.json
+lambda node initialize.
+```
+该命令会在 home 目录下生成一个 /.lambda 目录，/.lambda 下会有3个文件夹：
+
+1. ./config —— 存储 Lambda Chain 相关的配置文件
+2. ./data —— 存储Lambda Chain的数据
+3. ./keys —— 存储节点的账户信息
+ 
+**注意** 该目录下的文件跟测试网络的运行密切相关请妥善保管,不要随意进行操作。如果您担心账户信息数据丢失问题，请备份好./keys 目录下的所有文件或者使用我们的账户导出命令备份。
 
 ### 新建账户
 Lambda Validator节点需要以某个账户去启动才能正常运行，第一步需要创建一个初始账户。
@@ -44,28 +67,6 @@ Enter Password:
 ### 已有账户
 1. 在之前已有账户设备启动则不需要账户导入操作，直接执行clean.sh脚本，在执行完脚本后直接进行初始化Lambda节点和后续操作。
 2. 在新设备上启动，需要初始化节点，然后导入备份的账户信息，再进行Lambda节点启动的后续操作。
-
-### 初始化Lambda节点
-创建完初始账户后，需要用该账户对节点进行初始化，初始化会用到 bootconfig.json 文件，该文件为共识网络的配置信息，无需修改，修改会导致节点运行失败。
-
-执行：
-
-1. ./lambda init bootconfig.json，成功初始化能看到以下日志输出到控制台
-
-例如如下:
-```bash
-$ ./lambda init bootconfig.json
-Generated private validator path /Users/robert/.lambda/config/priv_validator.json
-Generated genesis file path /Users/robert/.lambda/config/genesis.json
-lambda node initialize.
-```
-该命令会在 home 目录下生成一个 /.lambda 目录，/.lambda 下会有3个文件夹：
-
-1. ./config —— 存储 Lambda Chain 相关的配置文件
-2. ./data —— 存储Lambda Chain的数据
-3. ./keys —— 存储节点的账户信息
- 
-**注意** 该目录下的文件跟测试网络的运行密切相关请妥善保管,不要随意进行操作。如果您担心账户信息数据丢失问题，请备份好./keys 目录下的所有文件或者使用我们的账户导出命令备份。
 
 ### 运行Validator节点
 初始化完成后，执行 startup.sh 脚本运行节点，让节点参与到区块链的运行中。
