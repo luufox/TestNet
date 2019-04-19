@@ -36,8 +36,9 @@
 3. 打币完成后可以启动矿工节点，这里必须要用提供的钱包地址的账户来启动矿工节点
 4. 矿工进行质押操作，质押的空间大小必须和提供的空间大小相符，质押完成后可以看到对应操作的命令行输出结果
 5. 矿工在质押操作的时候，绑定的Validator必须是你质押的Validator的地址，如果绑定错会出现异常从而影响收益
-6. 矿工在质押完成后要进行挂卖单操作，卖单参数官方建议是每次卖单的空间数为`1(GB)`，价格为`1(LAMB/GB/Day)`，还需要提供设备的公网IP，命令行输入例如如下`./lambda miner ask new [name] 1 1 [public IP]`。如果不按照推荐操作可能会导致订单匹配出现异常从而影响收益
+6. 矿工在质押完成后要进行挂卖单操作，卖单参数官方建议是每次卖单的空间数为`1(GB)`，价格为`1(LAMB/GB/Day)`，命令行输入例如如下`./lambda miner ask new [name] 1 1`。如果不按照推荐操作可能会导致订单匹配出现异常从而影响收益
 7. 手册中提到的所有地址都为Lambda的钱包地址
+8. Miner和Validator不能在同一台机器上运行
 
 ## 节点安装部署
 节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 tar -zxvf lambda_miner_x.x.x.tar.gz 解压 Lambda Miner，进入目录，无需设置额外的配置项，直接进行Lambda存储节点的部署操作
@@ -101,7 +102,9 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 ```
 生成的配置文件存储到storj/Storagenode目录下，这里可以执行`miner config`对配置文件进行编译。
 
-**注意** lambda/storj文件夹非常重要，请不要删除或者进行移动操作，在成为矿工后，用户存储的文件分片也会存储到该文件夹下。
+**注意** 
+1. lambda/storj文件夹非常重要，请不要删除或者进行移动操作，在成为矿工后，用户存储的文件分片也会存储到该文件夹下。
+2. 如果想要自定义存储路径，请修改bootconfig.json中的 `storage_path` 字段（请使用绝对路径），如果该字段为空或者路径不存在，将使用lambda的默认配置路径（$HOME/.lambda），修改完成后，重新执行 `./lambda miner init` 命令。
 
 
 ## 账户备份
@@ -173,13 +176,13 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 
 执行：
 
-1. ./lambda miner ask new [name] [price(LAMB/GB/day)] [storage capacity(GB)] [ip]
+1. ./lambda miner ask new [name] [price(LAMB/GB/day)] [storage capacity(GB)]
 2. 输入密码，回车。等待出块完成。
 
 **注意** 
 1. 发起卖单，必须要在质押之后
 2. 当前的价格单位为LAMB/GB/Day，这里支持的最小单位为，这里的报价绝对你是否可以从匹配市场匹配用户的订单
-3. 这里需要提供一个IP地址以绑定矿工，如果有多个设备提供存储，则可以备份key到其他设备上进行同样的操作
+3. 不需要指定PublicIp，程序会根据peerId进行寻址，如果PublicIp有变化，重新启动miner程序即可
 
 ### 撤回卖单
 矿工撤回已经挂起的卖单
