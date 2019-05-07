@@ -173,7 +173,7 @@ Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 
 执行：
 
-1. ./lambda miner pledge delete [name]
+1. ./lambda miner pledge revert [name]
 2. 输入密码，回车。出块等待。
 
 ### 矿工质押查询
