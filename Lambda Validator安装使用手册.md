@@ -33,8 +33,9 @@
 2. 修改执行 vi /etc/security/limits.conf 
 3. 添加 *　soft　　nofile　　unlimited
 4. 添加 *　hard　　nofile　  unlimited
-5. 修改后保存，注销当前用户，重新登录
-6. 执行ulimit -a查看是否为改后的值
+5. (非ubuntu用户不需要修改)vi /etc/profile, 添加ulimit -SHn unlimited
+6. 修改后保存，注销当前用户，重新登录
+7. 执行ulimit -a查看是否为改后的值
 
 ## 节点安装部署
 节点部署操作必须在当前系统账户拥有读写权限的目录下进行。执行 ``` tar -zxvf lambda_val_x.x.x.tar.gz ``` 解压 Lambda Validator安装包后，进入目录，无需设置额外的配置项，直接进行 Lambda Validator 节点的部署操作。
