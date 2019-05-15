@@ -39,8 +39,9 @@
 2. 修改执行 vi /etc/security/limits.conf 
 3. 添加 *　soft　　nofile　　unlimited
 4. 添加 *　hard　　nofile　  unlimited
-5. 修改后保存，注销当前用户，重新登录
-6. 执行ulimit -a查看是否为改后的值
+5. (非ubuntu用户不需要修改)vi /etc/profile, 添加ulimit -SHn unlimited
+6. 修改后保存，注销当前用户，重新登录
+7. 执行ulimit -a查看是否为改后的值
 
 ## 矿工注意事项
 1. 确定质押空间数(TB)和钱包地址并且发送给相应的Validator
