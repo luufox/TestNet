@@ -72,4 +72,3 @@ else
     chmod +x /etc/rc.d/rc.local
 fi
 
-
