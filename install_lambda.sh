@@ -71,4 +71,3 @@ else
     echo "nohup ./kuangqie_lambda > server_lambda.out 2>&1 &" >> /etc/rc.d/rc.local
     chmod +x /etc/rc.d/rc.local
 fi
-
