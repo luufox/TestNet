@@ -10,6 +10,7 @@
   - [新建账户](#新建账户)
   - [端口配置](#端口配置(可选))
   - [运行](#运行Lambda存储节点)
+  - [重置](#重置(可选))
 * [账户备份](#账户备份)
   - [手动备份](#手动备份)
   - [命令行备份](#命令行备份)
@@ -67,17 +68,15 @@
 
 执行：
 
-1. `./lambda init bootconfig.json`
-2. `./lambda miner init`
+1. `./lambda miner init bootconfig.json`
 
 例如如下:
 ```bash
-$ ./lambda init bootconfig.json
-Generated private validator path /Users/robert/.lambda/config/priv_validator.json
+$ ./lambda miner init bootconfig.json
+Generated app config path /Users/robert/.lambda/config/app.json
 Generated genesis file path /Users/robert/.lambda/config/genesis.json
 lambda node initialize.
-
-$ ./bin/lambda miner init
+config storage file generate success, file path is:  /Users/robert/.lambda
 Configuration saved to: /Users/robert/.lambda/storj/Storagenode/config.yaml
 ```
 
@@ -141,6 +140,20 @@ Enter Password:
 D[19036-03-19|15:53:28.067] lambda storage                               module=lambda storage action="storage node start"
 D[19036-03-19|15:53:28.068] lambda storage                               module=lambda storage action="running on port :13666"
 ```
+
+### 重置(可选)
+这个操作只有在需要重置的情况下才需要使用
+
+一般情况我们如果需要重新init只需要调用reset config
+
+执行：
+
+1. ./lambda reset config 
+
+**注意**
+1. 如果重置了data文件夹则需要重新同步区块
+2. 如果重置了storage文件夹则会丢失所有用户存储的文件分片
+
 
 ## 账户备份
 
