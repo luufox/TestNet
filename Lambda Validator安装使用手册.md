@@ -33,8 +33,8 @@
 需要修改系统的最大文件句柄数(不修改会影响节点运行，从而影响收益)
 1. 执行ulimit -a 查看open files的数值
 2. 修改执行 vi /etc/security/limits.conf 
-3. 添加 *　soft　　nofile　　unlimited
-4. 添加 *　hard　　nofile　  unlimited
+3. 添加 *　soft　　nofile　　65535
+4. 添加 *　hard　　nofile　  65535
 5. (非ubuntu用户不需要修改)vi /etc/profile, 添加ulimit -SHn unlimited
 6. 修改后保存，注销当前用户，重新登录
 7. 执行ulimit -a查看是否为改后的值
