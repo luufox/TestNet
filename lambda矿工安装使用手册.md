@@ -62,7 +62,7 @@
 创建完初始账户后，需要用该账户对节点进行初始化，初始化会用到 `bootconfig.json`文件，该文件为共识网络的配置信息，无需修改，修改会导致节点运行失败。
 准备：
 
-1. 如果想要自定义存储路径，请修改 `bootconfig.json` 中的 `storage_path` 字段（请使用绝对路径），如果该字段为空或者路径不存在，将使用lambda的默认配置路径（$HOME/.lambda），修改完成后，执行`clean.sh`，重新执行 `./lambda  miner init bootconfig.json` 命令。（只能在初始化节点时进行此操作，执行clean.sh脚本需要慎重）
+1. 如果想要自定义存储路径，请修改 `bootconfig.json` 中的 `storage_path` 字段（请使用绝对路径），如果该字段为空或者路径不存在，将使用lambda的默认配置路径（$HOME/.lambda），修改完成后，执行 `./lambda reset config`，重新执行 `./lambda  miner init bootconfig.json` 命令。（只能在初始化节点时进行此操作）
 2. 矿工在配置storage_path的时候要尽可能保证路径所在的磁盘空间足够充足，否则会导致订单存储失败影响收益。
 
 执行：
@@ -109,7 +109,7 @@ Enter Password:
 **注意** 后续可以通过 ./lambda account list 命令，查询本机的账户信息
 
 ### 已有账户
-1. 在之前已有账户设备启动则不需要账户导入操作，直接执行clean.sh脚本，在执行完脚本后直接进行初始化Lambda节点和后续操作。
+1. 在之前已有账户设备启动则不需要账户导入操作，直接执行 `./lambda reset config`，在执行完脚本后直接进行初始化Lambda节点和后续操作。
 2. 在新设备上启动，要先导入备份的账户信息，再进行初始化Lambda节点和后续操作。
 
 ### 端口配置(可选)
