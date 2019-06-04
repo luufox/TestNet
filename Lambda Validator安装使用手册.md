@@ -69,6 +69,12 @@ lambda node initialize.
 2. ./data —— 存储Lambda Chain的数据
 3. ./keys —— 存储节点的账户信息
  
+```
+ 
+ CentOS7 实测只有config  data两个目录  node_key.json也移至data了：
+
+```
+ 
 **注意** 该目录下的文件跟测试网络的运行密切相关请妥善保管,不要随意进行操作。如果您担心账户信息数据丢失问题，请备份好./keys 目录下的所有文件或者使用我们的账户导出命令备份。
 
 ### 新建账户
