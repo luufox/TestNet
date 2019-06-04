@@ -56,8 +56,14 @@ Generated private validator path /Users/robert/.lambda/config/priv_validator.jso
 Generated genesis file path /Users/robert/.lambda/config/genesis.json
 lambda node initialize.
 ```
+CentOS7 实测如下：
+````[root@localhost validator]# ./lambda init bootconfig.json 
+Generated app config path /root/.lambda/config/app.json
+Generated node key path /root/.lambda/config/node_key.json
+Generated genesis file path /root/.lambda/config/genesis.json
+lambda node initialize.  ````
 该命令会在 home 目录下生成一个 /.lambda 目录，/.lambda 下会有3个文件夹：
-
+    
 1. ./config —— 存储 Lambda Chain 相关的配置文件
 2. ./data —— 存储Lambda Chain的数据
 3. ./keys —— 存储节点的账户信息
