@@ -61,7 +61,8 @@ CentOS7 实测如下：
 Generated app config path /root/.lambda/config/app.json
 Generated node key path /root/.lambda/config/node_key.json
 Generated genesis file path /root/.lambda/config/genesis.json
-lambda node initialize.  ````
+lambda node initialize.  
+````
 该命令会在 home 目录下生成一个 /.lambda 目录，/.lambda 下会有3个文件夹：
     
 1. ./config —— 存储 Lambda Chain 相关的配置文件
